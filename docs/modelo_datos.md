@@ -2,9 +2,9 @@
 
 ## 1. Metadata de las tablas
 
-### `cuentas` — snapshot diario (1000 cuentas × 7 días, 2026-07-15 a 2026-07-21)
+### `cuentas` 
 
-Cada fila es el estado de una cuenta **al cierre de un día específico**, no el estado
+Cada fila es el estado de una cuenta al cierre de un día específico, no el estado
 "actual" único. Esto es clave: para saber el estado de una cuenta hay que filtrar por
 `fecha_cierre`, no asumir una sola fila por cuenta.
 
@@ -51,8 +51,7 @@ Cada fila es el estado de una cuenta **al cierre de un día específico**, no el
 exactamente 25 créditos con `descripcion = 'Ingreso en cuenta corriente sobregirada y
 embargada'`, y exactamente 25 pares de movimientos `INT_SOB`/`CAP_SOB` el mismo día, y 25
 movimientos `006` (algunos `RECHAZADO`, algunos con un `descripcion` de "Ajuste posterior al
-rechazo"). Es decir, **el dataset reproduce el problema descrito en el caso de negocio al
-100%**: toda cuenta corriente con sobregiro y embargo activo que recibió un crédito, en esta
+rechazo"). Es decir, **el dataset reproduce el problema descrito en el caso de negocio**: toda cuenta corriente con sobregiro y embargo activo que recibió un crédito, en esta
 muestra, tuvo su crédito aplicado a sobregiro antes que al embargo.
 
 ## 2. Relación entre tablas y llaves

@@ -1,7 +1,6 @@
--- =============================================================
+
 -- Actividad 3 - Modelamiento de datos
--- Motor: SQLite. Escrito contra el esquema REAL de sobregiros.db
--- =============================================================
+-- Motor: SQLite. 
 
 -- Query 1: metadata de cada tabla (nombre de columna, tipo, si es PK)
 PRAGMA table_info(cuentas);
