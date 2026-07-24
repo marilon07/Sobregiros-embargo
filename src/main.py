@@ -100,3 +100,18 @@ with open("data/output/tabla_resultado.csv","w",newline="") as archivo:
         caso.estado_trx_006,
         caso.clasificacion()
     ]) 
+
+
+total_casos = len(casos)
+alertas = [c for c in casos if c.clasificacion() == "ALERTA"]
+total_alertas = len(alertas)
+pct_alerta = round(100 * total_alertas / total_casos, 1) if total_casos > 0 else 0
+valor_en_riesgo = sum(c.aplicado_sobregiro for c in alertas)
+rechazadas = [c for c in casos if c.estado_trx_006 == "RECHAZADO"]
+total_rechazadas = len(rechazadas)
+
+print("\n=== INDICADORES ===")
+print(f"Total de casos evaluados: {total_casos}")
+print(f"Casos en Alerta: {total_alertas} ({pct_alerta}%)")
+print(f"Valor en riesgo: {valor_en_riesgo}")
+print(f"Trx 006 rechazadas: {total_rechazadas}")

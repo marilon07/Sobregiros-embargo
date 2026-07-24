@@ -80,3 +80,28 @@ Lógica: se toma el snapshot de `cuentas` en la fecha de corte (`cod_aplicacion 
 rastrear si el crédito se aplicó a sobregiro antes que al embargo, se hace un `LEFT JOIN`
 adicional contra los movimientos `APLICACION_SOBREGIRO` (`INT_SOB`/`CAP_SOB`) de la misma
 cuenta y fecha: si existen y suman más de 0, el caso queda marcado como alerta.
+
+## Indicadores propuestos
+
+A partir de la tabla resultado que genera `src/main.py`, se proponen los siguientes indicadores
+para el seguimiento diario del control:
+
+- **Total de casos evaluados:** cuántas cuentas corrientes embargadas con sobregiro recibieron
+  crédito en la fecha de corte.
+- **% de Alerta:** proporción de esos casos donde el crédito se aplicó a sobregiro antes que al
+  embargo. Es más útil que el conteo absoluto porque permite comparar el desempeño del control
+  entre días con distinto volumen de operaciones.
+- **Valor en riesgo:** suma del dinero aplicado a intereses/capital de sobregiro en los casos de
+  Alerta — dimensiona el impacto financiero, no solo el número de casos.
+- **Trx 006 rechazadas:** cuántas de esas transacciones quedaron finalmente rechazadas en el
+  cierre de depósitos — es el síntoma operativo final que originó el problema reportado.
+
+**Fuentes de datos necesarias:** la base `sobregiros.db`, tablas `cuentas`, `embargos` y
+`movimientos`.
+
+**Campos principales de la tabla resultado:** número de cuenta, valor del crédito recibido, valor
+aplicado a sobregiro, estado de la trx 006, y clasificación final (Normal o Alerta).
+
+**Proceso de automatización propuesto:** `src/main.py` recibe la fecha de corte como parámetro y
+ejecuta la consulta sin intervención manual, pensado para correr diariamente (por ejemplo, en un
+job programado cada madrugada) sobre los créditos del día anterior.
