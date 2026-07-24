@@ -1,6 +1,8 @@
 # Actividad 4 — Visualización del monitoreo
+![Vista del tablero de monitoreo](captura_tablero.jpg)
 
-C:\sobregiros-embargos\dashboard\Tablero_monitoreo.pbix
+Tablero interactivo: [`Tablero_monitoreo.pbix`](Tablero_monitoreo.pbix) (abrir con Power BI Desktop).
+
 
 ## Indicadores principales
 El tablero muestra 5 indicadores clave: **Casos Evaluados**, **Casos en Alertra**,, **%Alerta**, **Valor en Riesgo**, y **Trx 006 rechazadas** . El % de alerta es el indicador más importante para el seguimiento diario, ya que nos permite comparar el desempeño del control entre días con distinto volumen de operaciones.
