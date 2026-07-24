@@ -1,0 +1,5 @@
+# El proyecto usa unicamente la libreria estandar de Python (sqlite3, csv, sys)
+# para todo el analisis (Actividad 3), por lo que no hay dependencias externas
+# obligatorias para correr src/main.py.
+#
+# No se requiere instalar nada adicional con pip para ejecutar este proyecto.
