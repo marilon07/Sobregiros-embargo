@@ -1,6 +1,7 @@
 # Actividad 5 — Cierre ejecutivo
 
 **Para:** Gerencia de Depósitos, Gerencia de Embargos, Cumplimiento normativo
+
 **Asunto:** Solución funcional para el rechazo de la transacción 006 en cuentas embargadas con sobregiro
 
 En cuentas corrientes embargadas que además tienen cupo de sobregiro activo, el sistema aplica
