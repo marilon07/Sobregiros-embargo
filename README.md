@@ -72,7 +72,6 @@ resultado completo a `data/output/tabla_resultado.csv`.
 | 4. Visualización del monitoreo | `dashboard/descripcion_tablero.md` + `dashboard/tablero_monitoreo.pbix` |
 | 5. Comunicación ejecutiva | `docs/cierre_ejecutivo.md` |
 
-## Supuestos y decisiones clave (resumen)
 
 ## Supuestos y decisiones clave (resumen)
 
